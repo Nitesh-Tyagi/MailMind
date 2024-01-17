@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MailMind</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <div id="popup">
+        <div id="login">
+            <p id="logIn">Log In</p>
+            <p id="activate">Activate</p>
+            <p id="readyToUse">Ready to Use</p>
+            <svg id="line" width="350" height="14" viewBox="0 0 350 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1.5" y1="-1.5" x2="339.587" y2="-1.5" transform="matrix(0.999998 0.00215456 -0.00208332 0.999998 4.3916 8.41962)" stroke="#7C7C7C" stroke-width="3" stroke-linecap="round"/>
+                <path d="M180.022 7.67528C180.022 10.1595 178.048 12.1301 175.667 12.1301C173.285 12.1301 171.311 10.1595 171.311 7.67528C171.311 5.19108 173.285 3.22046 175.667 3.22046C178.048 3.22046 180.022 5.19108 180.022 7.67528Z" fill="#D9D9D9" stroke="#7C7C7C" stroke-width="3"/>
+                <path d="M348.37 7.67528C348.37 10.1595 346.396 12.1301 344.014 12.1301C341.632 12.1301 339.658 10.1595 339.658 7.67528C339.658 5.19108 341.632 3.22046 344.014 3.22046C346.396 3.22046 348.37 5.19108 348.37 7.67528Z" fill="#D9D9D9" stroke="#7C7C7C" stroke-width="3"/>
+                <path d="M10.2111 6.9309C10.2111 9.4151 8.23739 11.3857 5.85556 11.3857C3.47372 11.3857 1.5 9.4151 1.5 6.9309C1.5 4.44669 3.47372 2.47607 5.85556 2.47607C8.23739 2.47607 10.2111 4.44669 10.2111 6.9309Z" fill="#A5FFBE" stroke="#7C7C7C" stroke-width="3"/>
+            </svg>   
+            
+            <input type="text" placeholder="Open AI Key"  id="key">
+            <button id="right">Login</button>
+        </div>
+        <div id="info">
+
+            <span>1. Visit OpenAI API Key Page:<span class="dark">&nbsp;Go to</span> <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI's API Key page</a>.</span>
+            <span>2. Log In/Sign Up:<span class="dark">&nbsp;Log in to your OpenAI account, or sign up if you don't</span></span>
+            <span class="dark">&nbsp;&nbsp;&nbsp;&nbsp;have one.</span>
+            <span>3. Create New API Key:<span class="dark">&nbsp;Find and click the option to create a new API key.</span></span>
+            <span>4. Name Your API Key:<span class="dark">&nbsp;Name it something memorable, like "Gmail</span></span>
+            <span class="dark">&nbsp;Assistant".</span>
+            <span>5. Copy API Key:<span class="dark">&nbsp;Copy the newly created key.</span></span>
+            <span>6. Paste in Chrome Extension:<span class="dark">&nbsp;In your Gmail assistant Chrome extension,</span></span>
+            <span class="dark">&nbsp;&nbsp;&nbsp; paste the API key into the designated field.</span>
+            <span>7. Start Using:<span class="dark">&nbsp;Log in and enjoy your enhanced Gmail experience! 🌟</span></span>
+            &nbsp;&nbsp;&nbsp; <span>Enjoy your new Gmail assistant!</span>
+            &nbsp;&nbsp;&nbsp; <span><span class="dark">Happy emailing!</span> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Switch to <span class="dark"><button id="darkLight">Dark Mode</button></span>?</span>
+            
+        </div>
+    </div>
+
+	<script src="darkLight.js"></script>
+    <script src="animate.js"></script>
+    <script src="openai.js"></script>
+  </body>
+</html>
