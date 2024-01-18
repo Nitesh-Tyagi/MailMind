@@ -17,6 +17,7 @@ function requestGetData(key, callback) {
 // });
 
 let dark; 
+let darkLight = document.getElementById("darkLight");
 
 function updateMode () {
     requestGetData('dark', function(data) {
@@ -24,9 +25,11 @@ function updateMode () {
         // console.log("MODE : ",dark);
         if(dark=='dark' && !document.body.classList.contains('dark')) {
             document.body.classList.add('dark');
+            darkLight.innerText = 'Light Mode';
         }
         else {
             document.body.classList.remove('dark');
+            darkLight.innerText = 'Dark Mode';
         }
         // console.log("BODY CLASSLIST : ",document.body.classList);
     });
@@ -34,7 +37,7 @@ function updateMode () {
 
 updateMode();
 
-let darkLight = document.getElementById("darkLight");
+
 // console.log(darkLight);
 
 function switchDark () {

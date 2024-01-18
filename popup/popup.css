@@ -21,6 +21,10 @@
     src: url(../fonts/Jost-Regular.ttf);
 }
 
+* {
+    transition: 0.5s;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -55,9 +59,9 @@ button:hover {
     background-size: 420px 340px; */
 }
 
-#popup > * {
-    /* opacity: 0.5; */
-}
+/* #popup > * {
+    opacity: 0.5;
+} */
 
 #login {
     height: 90px;
@@ -71,6 +75,8 @@ button:hover {
     background: var(--background-color);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(2px);
+
+    overflow: hidden;
 }
 
 #login p {
@@ -107,10 +113,8 @@ button:hover {
 
 #key {
     position: absolute;
-    left: 24px;
+    
     top: 52px;
-
-    width: 288.74px;
     height: 26.292px;
     flex-shrink: 0;
 
@@ -132,21 +136,95 @@ button:hover {
     color: var(--text-color2);
 }
 
-#right {
-    position: absolute;
-    left: 318px;
-    top: 52px;
+#key.stage1 {
+    left: 24px;
+    width: 288.74px;
+}
 
-    width: 56.144px;
+#key.stage2 {
+    left: 85.404px;
+    width: 227.336px;
+}
+
+#key.stage3 {
+    left: 85.404px;
+    width: 288.74px;
+}
+
+#left {
+    position: absolute;
+    
+    top: 52px;
     height: 26.292px;
     flex-shrink: 0;
 
     color: var(--text-color2);
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.25);
+    /* background: var(--background-red); */
+    background: rgba(255, 205, 205, 0.70);
+    box-shadow: -2px -2px 3px 1px rgba(0, 0, 0, 0.20) inset, 2px 2px 3px 1px rgba(255, 255, 255, 0.50) inset, 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(3px);
+
+    overflow: hidden;
+
+    font-size: 10px;
+}
+
+#left.stage1 {
+    left: 0px;
+    width: 56.144px;
+    opacity: 0;
+}
+
+#left.stage2 {
+    left: 24px;
+    width: 56.144px;
+    opacity: 1;
+}
+
+#left.stage3 {
+    left: 24px;
+    width: 56.144px;
+    opacity: 1;
+}
+
+#right {
+    position: absolute;
+    
+    top: 52px;
+    height: 26.292px;
+    flex-shrink: 0;
+
+    color: var(--text-color2);
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.25);
+    /* background-color: var(--background-blue); */
     background: rgba(161, 176, 255, 0.60);
     box-shadow: -2px -2px 3px 1px rgba(0, 0, 0, 0.20) inset, 2px 2px 3px 1px rgba(255, 255, 255, 0.50) inset, 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(3px);
+
+    overflow: hidden;
+
+    font-size: 10px;
+}
+
+#right.stage1 {
+    left: 318px;
+    width: 56.144px;
+    opacity: 1;
+}
+
+#right.stage2 {
+    left: 318px;
+    width: 56.144px;
+    opacity: 1;
+}
+
+#right.stage3 {
+    left: 374.144px;
+    width: 56.144px;
+    opacity: 0;
 }
 
 #info {
