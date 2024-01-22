@@ -31,7 +31,7 @@ async function checkOpenAIKey(apiKey) {
         });
 
         if (response.ok) {
-            // console.log("API key is valid.");
+            console.log("API key is valid.");
             return true;
         } else {
             console.error("Invalid API key or other error:", response.statusText);
