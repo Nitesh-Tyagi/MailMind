@@ -70,3 +70,23 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.hideButton {
+    position: absolute;
+    z-index: 12;
+    right: 4vh;
+    bottom: 4vh;
+
+    height: 48px;
+    width: 48px;
+
+    /* background-color: var(--background-color); */
+    background-image: url("../images/icon-48.png");
+    background-size: cover; 
+    background-position: center; 
+    /* background-repeat: no-repeat; */
+
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    border: none;
+}

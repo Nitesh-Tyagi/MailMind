@@ -25,6 +25,12 @@
             "css": ["scripts/content.css"]
         }
     ],
+    "web_accessible_resources": [
+        {
+          "resources": ["images/icon-48.png"],
+          "matches": ["<all_urls>"]
+        }
+    ],      
     "background": {
         "service_worker": "background.js"
     },      

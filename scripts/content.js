@@ -68,6 +68,11 @@ function displayData(data) {
   reply.classList.add('innerBox');
   reply.innerText = data.reply;
 
+  let hideButton = document.createElement('button');
+  hideButton.classList.add('hideButton');
+
+  document.body.appendChild(hideButton);
+
   box.appendChild(summary);
   box.appendChild(reply);
 
