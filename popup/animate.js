@@ -121,9 +121,10 @@ function initialStage () {
             right.innerText = '';
         }
         else {
-            requestSetData('dark', 'dark');
-            requestSetData('stage', 1);
-            requestSetData('openID', '');
+            requestSetData('dark', 'dark'); // dark, light
+            requestSetData('stage', 1); // 1, 2, 3
+            requestSetData('openID', ''); // #string
+            requestSetData('hide',1); // 1 = show, 0 = hide
         }
     });
 }

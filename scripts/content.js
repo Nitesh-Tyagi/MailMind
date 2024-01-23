@@ -1,3 +1,9 @@
+function requestSetData(key, value) {
+  chrome.runtime.sendMessage({ action: 'setData', key: key, value: value }, function(response) {
+      // console.log('Data set');
+  });
+}
+
 function requestGetData(key, callback) {
     chrome.runtime.sendMessage({ action: 'getData', key: key }, function(response) {
         if (callback) callback(response);
@@ -36,8 +42,8 @@ async function processEmailWithOpenAI(apiKey, body) {
           return null;
       }
   } catch (error) {
-      console.error("Error during API request:", error);
-      return null;
+      // console.error("Error during API request:", error);
+      // return null;
   }
 }
 
@@ -48,6 +54,10 @@ function displayData(data) {
 
   let box = document.createElement('div');
   box.classList.add('box');
+  requestGetData('hide', function(data) {
+    if(data) box.style.opacity = '100';
+    else box.style.opacity = '0';
+  });
 
   requestGetData('dark', function(data) {
       dark = data;
@@ -70,6 +80,17 @@ function displayData(data) {
 
   let hideButton = document.createElement('button');
   hideButton.classList.add('hideButton');
+
+  hideButton.addEventListener('click', function () {
+    const box = document.getElementsByClassName('box')[0];
+    requestGetData('hide', function(data) {
+      data = 1 - data;
+      if(data) box.style.opacity = '100';
+      else box.style.opacity = '0';
+
+      requestSetData('hide',data);
+    });
+  })
 
   document.body.appendChild(hideButton);
 
@@ -104,7 +125,8 @@ function handleAsync(body) {
               console.log("DISPLAYING");
               processEmailWithOpenAI(key, JSON.stringify(body))
               .then(result => displayData(result))
-              .catch(error => console.error(error));
+              .catch(error);
+              // .catch(error => console.error(error));
             });
         } 
     });
@@ -138,9 +160,13 @@ function checkConditions() {
 
   if(!regex.test(currentURL)) {
     let box = document.getElementsByClassName('box');
+    let hideButton = document.getElementsByClassName('hideButton');
     console.log("REMOVING : ", box);
     while(box && box[0]) {
       document.body.removeChild(box[0]);
+    }
+    while(hideButton && hideButton[0]) {
+      document.body.removeChild(hideButton[0]);
     }
     return;
   }
