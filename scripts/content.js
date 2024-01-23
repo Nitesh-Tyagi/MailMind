@@ -128,46 +128,73 @@ function checkStage() {
 
 // FUNCTION CHECK FOR PRESENCE OF { .hP AND .ads AND URL.len>60 }
 function checkConditions() {
+  const regex = /inbox\//;
+  const currentURL = window.location.href;
+
+  if(!regex.test(currentURL)) {
+    let box = document.getElementsByClassName('box');
+    console.log("REMOVING : ", box);
+    while(box && box[0]) {
+      document.body.removeChild(box[0]);
+    }
+    return;
+  }
 //   console.log("CHECKING CONDITIONS");
   const h = document.getElementsByClassName("hP");
   const d = document.getElementsByClassName("ads");
 
-  if (h.length > 0 && d.length > 0) {
-    const currentURL = window.location.href;
-    
+  if (regex.test(currentURL) && h.length > 0 && d.length > 0) {
     // console.log("READCHED : 1");
-    if (currentURL !== lastURL && currentURL.length>60) {
+    // if () {
 
-    //   console.log("READCHED : 2");
-    // console.log("URL: " + currentURL);
+      //   console.log("READCHED : 2");
+      // console.log("URL: " + currentURL);
 
-    s = "";
-    s += "SUBJECT : " + h[0].innerText + "\n\nBODY : \n";
-    
-    innerTextRecursive(d[0]);
-    
-    lastURL = currentURL;
+      s = "";
+      s += "SUBJECT : " + h[0].innerText + "\n\nBODY : \n";
+      
+      innerTextRecursive(d[0]);
+      
+      // lastURL = currentURL;
 
-    // console.log("DISPLAYING : ",s);
-    handleAsync(s);
-    }
+      // console.log("DISPLAYING : ",s);
+      handleAsync(s);
+    // }
   }
 }
   
-// LISTEN FOR DOM CONTENT LOAD
-document.addEventListener("DOMContentLoaded", checkConditions);
+// // LISTEN FOR DOM CONTENT LOAD
+// document.addEventListener("DOMContentLoaded", checkConditions);
 
-// LISTEN FOR DOM MUTATION
-const observer = new MutationObserver(function (mutations) {
-  mutations.forEach(function (mutation) {
-    checkConditions();
-  });
-});
+// // LISTEN FOR DOM MUTATION
+// const observer = new MutationObserver(function (mutations) {
+//   mutations.forEach(function (mutation) {
+//     checkConditions();
+//   });
+// });
 
-// START DOM OBSERVATION
-observer.observe(document.body, {
-  subtree: true,  // WATCH FOR CHANGES IN { entire DOM subtree }
-  childList: true, // WATCH FOR CHANGES IN { child elements }
-});
+// // START DOM OBSERVATION
+// observer.observe(document.body, {
+//   subtree: true,  // WATCH FOR CHANGES IN { entire DOM subtree }
+//   childList: true, // WATCH FOR CHANGES IN { child elements }
+// });
+
+// let lastURL = window.location.href;
+
+function checkForUrlChange() {
+    const currentUrl = window.location.href;
+    if (lastURL !== currentUrl) {
+        lastURL = currentUrl;
+        console.log("CHECKING");
+        checkConditions();
+    }
+}
+
+// Check for URL change every 500 milliseconds
+setInterval(checkForUrlChange, 1000);
+
+// Initial check
+checkConditions();
+
 
 console.log("CONTENT JS WORKING");
