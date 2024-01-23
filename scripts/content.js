@@ -27,7 +27,7 @@ async function processEmailWithOpenAI(apiKey, body) {
           body: JSON.stringify({
               model: "gpt-3.5-turbo-instruct", // or the latest available model
               prompt: prompt,
-              max_tokens: 2000 // adjust as needed
+              max_tokens: 500 // adjust as needed
           })
       });
 
