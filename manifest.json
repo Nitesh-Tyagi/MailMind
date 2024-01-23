@@ -27,10 +27,10 @@
     ],
     "web_accessible_resources": [
         {
-          "resources": ["images/icon-48.png"],
-          "matches": ["<all_urls>"]
+            "resources": ["images/*.png", "fonts/*.ttf"],
+            "matches": ["<all_urls>"]
         }
-    ],      
+    ],
     "background": {
         "service_worker": "background.js"
     },      

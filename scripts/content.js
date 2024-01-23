@@ -55,8 +55,14 @@ function displayData(data) {
   let box = document.createElement('div');
   box.classList.add('box');
   requestGetData('hide', function(data) {
-    if(data) box.style.opacity = '100';
-    else box.style.opacity = '0';
+    if(data) {
+      box.style.opacity = '100';
+      box.style.zIndex = '10';
+    }
+    else {
+      box.style.opacity = '0';
+      box.style.zIndex = '-10';
+    }
   });
 
   requestGetData('dark', function(data) {
@@ -78,15 +84,21 @@ function displayData(data) {
   reply.classList.add('innerBox');
   reply.innerText = data.reply;
 
-  let hideButton = document.createElement('button');
+  let hideButton = document.createElement('div');
   hideButton.classList.add('hideButton');
 
   hideButton.addEventListener('click', function () {
     const box = document.getElementsByClassName('box')[0];
     requestGetData('hide', function(data) {
       data = 1 - data;
-      if(data) box.style.opacity = '100';
-      else box.style.opacity = '0';
+      if(data) {
+        box.style.opacity = '100';
+        box.style.zIndex = '10';
+      }
+      else {
+        box.style.opacity = '0';
+        box.style.zIndex = '-10';
+      }
 
       requestSetData('hide',data);
     });

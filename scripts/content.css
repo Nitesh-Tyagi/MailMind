@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: Jost;
-    src: url(../fonts/Jost-Regular.ttf);
+    src: url("chrome-extension://__MSG_@@extension_id__/fonts/Jost-Regular.ttf");
 }
 
 .box.dark {
@@ -31,7 +31,7 @@
 
 .box {
     position: absolute;
-    z-index: 10;
+    z-index: -10;
     width: 540px;
     height: 98vh;
     flex-shrink: 0;
@@ -67,7 +67,7 @@
 
     color: var(--text-color2);
 
-    /* font-family: Jost; */
+    font-family: Jost;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -83,13 +83,13 @@
     height: 48px;
     width: 48px;
 
-    /* background-color: var(--background-color); */
-    background-image: url("../images/icon-48.png");
-    background-size: cover; 
-    background-position: center; 
-    /* background-repeat: no-repeat; */
+    background-color: var(--background-color);
+    background-image: url("chrome-extension://__MSG_@@extension_id__/images/icon-48.png");
+    background-size: 36px; /* or 'contain', depending on how you want the image to fit */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-position: center;
 
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     border: none;
 }
