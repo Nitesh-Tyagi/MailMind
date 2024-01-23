@@ -120,6 +120,11 @@ function initialStage () {
             left.innerText = 'Turn Off';
             right.innerText = '';
         }
+        else {
+            requestSetData('dark', 'dark');
+            requestSetData('stage', 1);
+            requestSetData('openID', '');
+        }
     });
 }
 
