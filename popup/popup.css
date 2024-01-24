@@ -6,7 +6,7 @@
     --background-blue: rgba(161, 176, 255, 0.70);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --text-color: #7C7C7C;
         --text-color2: #D9D9D9;
@@ -14,7 +14,7 @@
         --background-red: rgba(137, 0, 0, 0.56);
         --background-blue: rgba(0, 28, 174, 0.56);
     }
-}
+} */
 
 @font-face {
     font-family: Jost;
