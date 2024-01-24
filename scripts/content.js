@@ -70,19 +70,62 @@ function displayData(data) {
       console.log("MODE : ",dark);
       if(dark=='dark' && !box.classList.contains('dark')) {
           box.classList.add('dark');
+          hideButton.classList.add('dark');
       }
       else {
           box.classList.remove('dark');
+          hideButton.classList.remove('dark');
       }
       console.log("BODY CLASSLIST : ",box.classList);
   });
 
   let summary = document.createElement('div');
   summary.classList.add('innerBox');
-  summary.innerText = data.subject + "\n\n" + data.summary;
+  // summary.innerText = data.subject + "\n\n" + data.summary;
+
+  let summaryTop = document.createElement('div');
+  summaryTop.classList.add('boxTop');
+  summaryTop.innerText = data.subject;
+  let summaryBottom = document.createElement('div');
+  summaryBottom.classList.add('boxBottom');
+  summaryBottom.innerText = data.summary;
+
+  summary.appendChild(summaryTop);
+  summary.appendChild(summaryBottom);
+
   let reply = document.createElement('div');
   reply.classList.add('innerBox');
-  reply.innerText = data.reply;
+  reply.classList.add('clickable');
+  
+  // reply.innerText = data.reply;
+
+  let replyTop = document.createElement('div');
+  replyTop.classList.add('boxTop');
+  replyTop.innerText = 'Reply';
+  let replyBottom = document.createElement('div');
+
+  replyBottom.classList.add('boxBottom');
+  replyBottom.innerText = data.reply;
+
+  reply.appendChild(replyTop);
+  reply.appendChild(replyBottom);
+
+  reply.addEventListener('click',function () {
+    navigator.clipboard.writeText(data.reply)
+    .then(function() {
+      // console.log("!!! REPLY : ",replyTop,"\n\n",data.reply);
+      setTimeout(function () {
+          function addSpace(n) {
+            return new Array(n + 1).join('&nbsp;');
+          }
+        replyTop.innerHTML = 'Reply' + addSpace(58) + 'Copied to Clipboard!';
+        setTimeout(function () {
+          replyTop.innerText = 'Reply';
+        },3000);
+      },500);
+    })
+    .catch();
+  });
 
   let hideButton = document.createElement('div');
   hideButton.classList.add('hideButton');

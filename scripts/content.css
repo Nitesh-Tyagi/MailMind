@@ -65,13 +65,37 @@
     padding: 40px;
     box-sizing: border-box;
 
-    color: var(--text-color2);
+    /* color: var(--text-color2); */
 
     font-family: Jost;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.clickable:active {
+    transform: scale(1.01);
+}
+
+.boxTop {
+    /* background-color: red; */
+    color: var(--text-color);
+
+    padding-bottom: 12px;
+}
+
+.boxBottom {
+    /* background-color: blue; */
+    color: var(--text-color2);
+}
+
+.hideButton.dark {
+    --text-color: #7C7C7C;
+    --text-color2: #D9D9D9;
+    --background-color: rgba(255, 255, 255, 0.50);
+    --background-red: rgba(137, 0, 0, 0.56);
+    --background-blue: rgba(0, 28, 174, 0.56);
 }
 
 .hideButton {
@@ -92,4 +116,12 @@
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     border: none;
+}
+
+.hideButton:hover {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25), 0px 0px 4px 4px var(--background-red);
+}
+
+.hideButton:active {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25), 0px 0px 4px 4px var(--background-blue);
 }
