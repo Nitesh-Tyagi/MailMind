@@ -48,9 +48,9 @@ async function processEmailWithOpenAI(apiKey, body) {
 }
 
 function displayData(data) {
-  console.log("SUBJECT : ",data.subject);
-  console.log("SUMMARY : ",data.summary);
-  console.log("REPLY : ",data.reply);
+  // console.log("SUBJECT : ",data.subject);
+  // console.log("SUMMARY : ",data.summary);
+  // console.log("REPLY : ",data.reply);
 
   let box = document.createElement('div');
   box.classList.add('box');
@@ -67,7 +67,7 @@ function displayData(data) {
 
   requestGetData('dark', function(data) {
       dark = data;
-      console.log("MODE : ",dark);
+      // console.log("MODE : ",dark);
       if(dark=='dark' && !box.classList.contains('dark')) {
           box.classList.add('dark');
           hideButton.classList.add('dark');
@@ -76,7 +76,7 @@ function displayData(data) {
           box.classList.remove('dark');
           hideButton.classList.remove('dark');
       }
-      console.log("BODY CLASSLIST : ",box.classList);
+      // console.log("BODY CLASSLIST : ",box.classList);
   });
 
   let summary = document.createElement('div');
@@ -154,7 +154,7 @@ function displayData(data) {
 
   document.body.appendChild(box);
 
-  console.log("BOX : ",box);
+  // console.log("BOX : ",box);
 }
 
 // async function processEmailWithOpenAI(apiKey, body) {
@@ -175,9 +175,9 @@ function handleAsync(body) {
         // console.log("STAGE : ",stage);
         // if(stage==3) console.log("STAGE IS THREE");
         if(stage==3){
-            console.log(body);
+            // console.log(body);
             requestGetData('openID', function(key) {
-              console.log("DISPLAYING");
+              // console.log("DISPLAYING");
               processEmailWithOpenAI(key, JSON.stringify(body))
               .then(result => displayData(result))
               .catch(error);
@@ -216,7 +216,7 @@ function checkConditions() {
   if(!regex.test(currentURL)) {
     let box = document.getElementsByClassName('box');
     let hideButton = document.getElementsByClassName('hideButton');
-    console.log("REMOVING : ", box);
+    // console.log("REMOVING : ", box);
     while(box && box[0]) {
       document.body.removeChild(box[0]);
     }
@@ -271,7 +271,7 @@ function checkForUrlChange() {
     const currentUrl = window.location.href;
     if (lastURL !== currentUrl) {
         lastURL = currentUrl;
-        console.log("CHECKING");
+        // console.log("CHECKING");
         checkConditions();
     }
 }
@@ -283,4 +283,4 @@ setInterval(checkForUrlChange, 1000);
 checkConditions();
 
 
-console.log("CONTENT JS WORKING");
+// console.log("CONTENT JS WORKING");
