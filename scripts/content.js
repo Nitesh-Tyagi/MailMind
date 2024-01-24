@@ -15,7 +15,7 @@ var s = "";
 
 async function processEmailWithOpenAI(apiKey, body) {
   const url = 'https://api.openai.com/v1/completions';
-  const prompt = `"Process this email and give me the result in a json like structured format\n{\n  \"subject\"  :  \"\",\n  \"summary\" : \"\",\n  \"reply\" : \"\"\n}\n- subject : summary of the subject, between 100 and 200 characters\n- summary : summary of email, between 800 and 1000 characters\n- reply : a positive reply of the email, between 800 and 1000 characters, reply should not contain a subject line, try unserstanding my name for reply from the email if not found don't use any name\n\n${body}`;
+  const prompt = `"Process this email and give me the result in a json like structured format\n{\n  \"subject\"  :  \"\",\n  \"summary\" : \"\",\n  \"reply\" : \"\"\n}\n- subject : summary of the subject, between 80 and 120 characters\n- summary : summary of email, between 600 and 800 characters\n- reply : a positive reply of the email, between 600 and 800 characters, reply should not contain a subject line, try unserstanding my name for reply from the email if not found don't use any name\n\n${body}`;
 
   try {
       const response = await fetch(url, {
@@ -27,7 +27,7 @@ async function processEmailWithOpenAI(apiKey, body) {
           body: JSON.stringify({
               model: "gpt-3.5-turbo-instruct", // or the latest available model
               prompt: prompt,
-              max_tokens: 500 // adjust as needed
+              max_tokens: 2000 // adjust as needed
           })
       });
 
