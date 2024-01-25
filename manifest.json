@@ -28,7 +28,7 @@
     "web_accessible_resources": [
         {
             "resources": ["images/*.png", "fonts/*.ttf"],
-            "matches": ["https://mail.google.com/mail/*"]
+            "matches": ["<all_urls>"]
         }
     ],
     "background": {
