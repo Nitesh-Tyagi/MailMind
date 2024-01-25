@@ -6,16 +6,6 @@
     --background-blue: rgba(161, 176, 255, 0.70);
 }
 
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --text-color: #7C7C7C;
-        --text-color2: #D9D9D9;
-        --background-color: rgba(0, 0, 0, 0.75);
-        --background-red: rgba(137, 0, 0, 0.56);
-        --background-blue: rgba(0, 28, 174, 0.56);
-    }
-} */
-
 @font-face {
     font-family: Jost;
     src: url("chrome-extension://__MSG_@@extension_id__/fonts/Jost-Regular.ttf");
@@ -44,7 +34,6 @@
 
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
     align-items: center;
 
     opacity: 0;
@@ -65,8 +54,6 @@
     padding: 40px;
     box-sizing: border-box;
 
-    /* color: var(--text-color2); */
-
     font-family: Jost;
     font-size: 15px;
     font-style: normal;
@@ -79,14 +66,11 @@
 }
 
 .boxTop {
-    /* background-color: red; */
     color: var(--text-color);
-
     padding-bottom: 12px;
 }
 
 .boxBottom {
-    /* background-color: blue; */
     color: var(--text-color2);
 }
 
@@ -109,8 +93,8 @@
 
     background-color: var(--background-color);
     background-image: url("chrome-extension://__MSG_@@extension_id__/images/icon-48.png");
-    background-size: 36px; /* or 'contain', depending on how you want the image to fit */
-    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-size: 36px;
+    background-repeat: no-repeat;
     background-position: center;
 
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);

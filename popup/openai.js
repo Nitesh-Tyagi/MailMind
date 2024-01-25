@@ -1,7 +1,5 @@
 function requestSetData(key, value) {
-    chrome.runtime.sendMessage({ action: 'setData', key: key, value: value }, function(response) {
-        // console.log('Data set');
-    });
+    chrome.runtime.sendMessage({ action: 'setData', key: key, value: value }, function(response) {});
 }
 
 function requestGetData(key, callback) {
@@ -13,11 +11,6 @@ function requestGetData(key, callback) {
 let key = document.getElementById('key');
 let left = document.getElementById('left');
 let right = document.getElementById('right');
-
-
-// console.log(key);
-// console.log(left);
-// console.log(right);
 
 async function checkOpenAIKey(apiKey) {
     const url = 'https://api.openai.com/v1/engines';
@@ -31,7 +24,6 @@ async function checkOpenAIKey(apiKey) {
         });
 
         if (response.ok) {
-            // console.log("API key is valid.");
             return true;
         } else {
             console.error("Invalid API key or other error:", response.statusText);
@@ -80,27 +72,17 @@ function stage32 () {
 
 function leftClick () {
     requestGetData('stage', function(stage) {
-        // console.log(stage);
-
         if(stage==2) stage21();
         else if(stage==3) stage32();
-
     });
 }
 
 function rightClick () {
     requestGetData('stage', function(stage) {
-        // console.log(stage);
-
         if(stage==1) stage12();
         else if(stage==2) stage23();
-
     });
 }
 
 left.addEventListener('click', leftClick);
 right.addEventListener('click', rightClick);
-
-// animate();
-
-// requestSetData('stage', 1);

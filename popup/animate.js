@@ -1,14 +1,3 @@
-// console.log("ANIMATE 1 : ", key, right);
-
-// function animate () {
-//     console.log("ANIMATE 2 : ", key, right);
-// }
-
-// animate12
-// animate23
-// animate32
-// animate21
-
 let c1 = document.getElementById('c1');
 let c2 = document.getElementById('c2');
 let c3 = document.getElementById('c3');

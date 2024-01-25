@@ -28,16 +28,13 @@
     "web_accessible_resources": [
         {
             "resources": ["images/*.png", "fonts/*.ttf"],
-            "matches": ["<all_urls>"]
+            "matches": ["https://mail.google.com/mail/*"]
         }
     ],
     "background": {
         "service_worker": "background.js"
     },      
     "permissions": [
-        "activeTab",
-        "storage",
-        "webNavigation",
-        "scripting"
+        "storage"
     ]  
 }
